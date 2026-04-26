@@ -2,7 +2,7 @@ Metadata-Version: 2.4
 Name: flasheda
 Version: 0.1.0
 Summary: Constant-time EDA for any dataset size — one line, fixed time.
-Author: Your Name
+Author: Japanjot Singh
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Requires-Python: >=3.8
