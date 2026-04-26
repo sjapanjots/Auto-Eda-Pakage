@@ -1,1 +1,21 @@
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# PyPI credentials
+.pypirc
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
 .env
+*.env
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
