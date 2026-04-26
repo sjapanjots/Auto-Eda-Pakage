@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="flasheda",
-    version="0.1.2",
+    version="0.1.3",
     description="Constant-time EDA for any dataset size — one line, fixed time.",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",

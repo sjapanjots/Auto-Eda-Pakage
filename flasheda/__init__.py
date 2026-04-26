@@ -21,26 +21,10 @@ def analyze(
     *,
     show: bool = False,
     random_state: int = 42,
-    save_pdf: bool = True,                        # ← NEW: auto-save PDF
-    pdf_path: str = "flasheda_report.pdf",        # ← NEW: PDF file name
+    save_pdf: bool = True,
+    pdf_path: str = "flasheda_report.pdf",
 ) -> EDAReport:
-    """
-    Perform constant-time EDA on any dataset.
 
-    Parameters
-    ----------
-    source       : pandas DataFrame or path to CSV / Parquet file
-    n            : sample size (default 5000)
-    show         : print rich console summary
-    random_state : RNG seed
-    save_pdf     : automatically save PDF report (default True)
-    pdf_path     : path/name of the PDF file to save
-
-    Example
-    -------
-    >>> report = flasheda.analyze(df)
-    # flasheda_report.pdf is saved automatically
-    """
     t0 = time.perf_counter()
     n = n or get_sample_size()
 
@@ -103,7 +87,6 @@ def analyze(
     if show:
         report.show()
 
-    # ── Auto-save PDF immediately after analysis ───────────────────────────
     if save_pdf:
         report.save_pdf(pdf_path)
 
