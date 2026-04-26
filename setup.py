@@ -2,9 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name="flasheda",
-    version="0.1.0",
+    version="0.1.2",
     description="Constant-time EDA for any dataset size — one line, fixed time.",
-    author="Your Name",
+    long_description=open("README.md", encoding="utf-8").read(),
+    long_description_content_type="text/markdown",
+    author="Japanjot Singh",
+    author_email="sjapanjots@gmail.com",
+    url="https://github.com/sjapanjots/flasheda",
     packages=find_packages(),
     python_requires=">=3.8",
     install_requires=[
@@ -14,9 +18,10 @@ setup(
         "rich>=12.0.0",
         "jinja2>=3.0.0",
         "matplotlib>=3.4.0",
+        "fpdf2>=2.7.0",            
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "Topic :: Scientific/Engineering :: Information Analysis",
     ],
 )

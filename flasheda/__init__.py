@@ -11,7 +11,7 @@ from .sampler import sample, get_sample_size, set_sample_size
 from .analyzers import overview, missing, numeric, categorical, correlation
 from .report import EDAReport
 
-__version__ = "0.1.0"
+__version__ = "0.1.2"
 __all__ = ["analyze", "set_sample_size", "get_sample_size", "EDAReport"]
 
 
@@ -21,8 +21,26 @@ def analyze(
     *,
     show: bool = False,
     random_state: int = 42,
+    save_pdf: bool = True,                        # ← NEW: auto-save PDF
+    pdf_path: str = "flasheda_report.pdf",        # ← NEW: PDF file name
 ) -> EDAReport:
+    """
+    Perform constant-time EDA on any dataset.
 
+    Parameters
+    ----------
+    source       : pandas DataFrame or path to CSV / Parquet file
+    n            : sample size (default 5000)
+    show         : print rich console summary
+    random_state : RNG seed
+    save_pdf     : automatically save PDF report (default True)
+    pdf_path     : path/name of the PDF file to save
+
+    Example
+    -------
+    >>> report = flasheda.analyze(df)
+    # flasheda_report.pdf is saved automatically
+    """
     t0 = time.perf_counter()
     n = n or get_sample_size()
 
@@ -85,14 +103,8 @@ def analyze(
     if show:
         report.show()
 
+    # ── Auto-save PDF immediately after analysis ───────────────────────────
+    if save_pdf:
+        report.save_pdf(pdf_path)
+
     return report
-
-
-def get_sample_size() -> int:
-    from .sampler import get_sample_size as _get
-    return _get()
-
-
-def set_sample_size(n: int) -> None:
-    from .sampler import set_sample_size as _set
-    _set(n)
